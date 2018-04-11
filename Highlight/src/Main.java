@@ -1,6 +1,16 @@
 import java.util.*;
 import java.util.stream.Collectors;
 
+/*
+Input: a string and a list of words.
+Output: a string
+Problem: For any substring in the input string that matches a word in the list of words, enclose the substring
+in <>. Minimize the number of brackets where possible and wrap overlapping substrings within a single <>. For example,
+if the input string is "foobargooglebazbarpooold" and the list of words is ["foo", "bar", "baz", "zba", "poo"], then the
+correct output string is "<foobar>google<bazbarpoo>old". An incorrect implementation is the following:
+<foo><bar>google<ba<z><ba>r><poo>old
+*/
+
 public class Main {
 
     static String highlight(String[] words, String str) {
