@@ -32,8 +32,8 @@ public class Main {
         StringBuffer withUglyBrackets = new StringBuffer();
         int start = 0;
 
-        while (!openAngle.isEmpty() && !closedAngle.isEmpty()) {
-            if (openAngle.get(0) <= closedAngle.get(0)) {
+        while (!openAngle.isEmpty() || !closedAngle.isEmpty()) {
+            if (!openAngle.isEmpty() && openAngle.get(0) <= closedAngle.get(0)) {
                 int position = openAngle.remove(0);
                 withUglyBrackets.append(str.substring(start, position));
                 withUglyBrackets.append("<");
@@ -44,13 +44,6 @@ public class Main {
                 withUglyBrackets.append(">");
                 start = position;
             }
-        }
-
-        while (!closedAngle.isEmpty()) {
-            int position = closedAngle.remove(0);
-            withUglyBrackets.append(str.substring(start, position));
-            withUglyBrackets.append(">");
-            start = position;
         }
 
         if (start < str.length()) {
